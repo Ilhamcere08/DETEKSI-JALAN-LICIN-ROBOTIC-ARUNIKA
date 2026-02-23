@@ -3,11 +3,11 @@
 #include <FirebaseESP32.h>
 #include <DHT.h>
 
-// --- WIFI & FIREBASE ---
+//WI-FI
 #define WIFI_SSID "HANDOKO.NET"
 #define WIFI_PASSWORD "spasi6kali"
-#define DATABASE_URL "https://projek-besar-robbotic-default-rtdb.asia-southeast1.firebasedatabase.app"
-#define DATABASE_SECRET "m7dOlI3KWelVUltyaKSLOvoj90aMTaYuKOzseX9v"   // ⭐ ganti ini
+#define DATABASE_URL "NOPE"
+#define DATABASE_SECRET "NOPE"
 
 #define DHTPIN 4
 #define DHTTYPE DHT11
@@ -108,4 +108,5 @@ void loop() {
   }
 
   delay(1000);
+
 }

@@ -1,0 +1,103 @@
+:root {
+    --bg: #f4f7fe; --card: #ffffff; --txt: #1b2559; --accent: #4318ff;
+    --grad-blue: linear-gradient(135deg, #4318ff, #74b9ff);
+    --grad-green: linear-gradient(135deg, #05cd99, #66f1ce);
+}
+.dark-theme { --bg: #0b1437; --card: #111c44; --txt: #ffffff; --accent: #7551ff; }
+
+/* ANIMASI DARK/LIGHT MODE SUPER SMOOTH */
+* { margin:0; padding:0; box-sizing:border-box; }
+body, .card, .navbar, .tab-btn, .pane, .modal-box, .calendar-wrapper { 
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease; 
+}
+body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--txt); overflow-x: hidden; }
+
+/* NAVBAR SERI & FONT RAJDHANI */
+.navbar, .brand, .live-clock, .tab-btn, .btn-cool, h2, h3, .calendar-days-header {
+    font-family: 'Rajdhani', sans-serif !important;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.navbar { height: 85px; background: var(--card); border-bottom: 2px solid var(--accent); position: sticky; top:0; z-index: 1000; display: flex; align-items: center; }
+.nav-container { width: 100%; max-width: 1600px; margin: 0 auto; padding: 0 25px; display: flex; justify-content: space-between; align-items: center; }
+.brand-area, .nav-menu, .nav-actions { display: flex; align-items: center; gap: 15px; }
+
+.brand { font-size: 1.6rem; letter-spacing: 1px; }
+.brand span { color: var(--accent); }
+.live-clock { background: rgba(150,150,150,0.1); padding: 5px 12px; border-radius: 8px; color: var(--accent); }
+
+.tab-btn { border: 1px solid rgba(150,150,150,0.2); padding: 10px 20px; border-radius: 12px; cursor: pointer; background: transparent; color: var(--txt); transition: 0.3s; }
+.tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+.btn-cool { border: none; padding: 10px 18px; border-radius: 10px; color: white; cursor: pointer; transition: 0.3s; }
+.btn-geo { background: var(--grad-green); }
+.btn-stats { background: var(--grad-blue); }
+
+/* TOMBOL DOWNLOAD CSV HIJAU */
+.btn-export { background: linear-gradient(135deg, #28a745, #218838) !important; box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3); }
+.btn-export:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+/* HERO IMAGE DIPERGELAP */
+.status-hero {
+    position: relative; height: 350px; border-radius: 30px; overflow: hidden;
+    background: url('https://i.pinimg.com/736x/28/0e/97/280e9793600a5babc6ac605f9effd234.jpg') center/cover;
+    display: flex; align-items: center; justify-content: center;
+}
+.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.7); z-index: 1; }
+.hero-content { position: relative; z-index: 2; color: white; text-align: center; }
+.hero-content h1 { font-size: 3.5rem; font-family: 'Rajdhani'; }
+
+/* ANIMASI SLIDE PERGANTIAN TAB */
+.pane { display: none; opacity: 0; transform: translateX(50px); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+.pane.active { display: block; opacity: 1; transform: translateX(0); }
+
+.master-container { display: flex; padding: 25px; gap: 25px; }
+.main-view { flex: 1; }
+.sensor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 25px; }
+.card { background: var(--card); padding: 25px; border-radius: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+
+.p-bar { width: 100%; height: 8px; background: #eee; border-radius: 10px; margin-top: 10px; overflow: hidden; }
+#bar-temp { height: 100%; background: #ff7675; width: 0; transition: 1s; }
+#bar-hum { height: 100%; background: #4318ff; width: 0; transition: 1s; }
+
+/* KALENDER 7 KOLOM (DIUPGRADE UNTUK TAMPILAN LENGKAP) */
+.calendar-days-header { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; margin-bottom: 15px; color: var(--accent); font-size: 1.1rem; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+.cal-item { 
+    padding: 10px 5px; border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+    background: rgba(150,150,150,0.05); border: 1px solid rgba(150,150,150,0.1); 
+}
+.cal-date { font-size: 0.75rem; font-weight: bold; margin-bottom: 5px; text-align: center; }
+.cal-icon { font-size: 1.8rem; margin: 5px 0; }
+.cal-stats { font-size: 0.7rem; display: flex; flex-direction: column; align-items: center; font-weight: 600; gap: 3px; }
+.cal-rain { background: rgba(33, 150, 243, 0.1); border-color: rgba(33, 150, 243, 0.3); }
+
+.dark-theme .cal-rain { background: rgba(33, 150, 243, 0.2); }
+.dark-theme .cal-item { background: rgba(255,255,255,0.05); }
+
+/* ASIDE GRAFIK */
+.charts-aside { width: 350px; }
+.chart-card { height: 220px; margin-bottom: 20px; }
+.hidden { display: none !important; }
+
+/* THEME TOGGLE */
+.theme-wrapper { margin-left: 10px; }
+.theme-input { display: none; }
+.theme-label { width: 65px; height: 32px; background: #e0e5f2; border-radius: 50px; position: relative; cursor: pointer; display: flex; align-items: center; transition: 0.4s; }
+.theme-ball { position: absolute; left: 4px; width: 24px; height: 24px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.4s; }
+.theme-input:checked + .theme-label { background: #2c3e50; }
+.theme-input:checked + .theme-label .theme-ball { transform: translateX(33px) rotate(360deg); background: #f1c40f; }
+.theme-input:checked + .theme-label .sun-icon { display: none; }
+.theme-input:checked + .theme-label .moon-icon { display: block; }
+.moon-icon { display: none; font-size: 14px; }
+.sun-icon { font-size: 14px; }
+
+/* MODAL & TOAST */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 2000; }
+.modal-box { width: 90%; max-width: 600px; }
+.modal-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
+.btn-close { background: #ff4757; color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; }
+.toast-container { position: fixed; bottom: 20px; right: 20px; z-index: 9999; }
+.toast { background: #ff4757; color: white; padding: 15px 25px; border-radius: 12px; margin-top: 10px; font-weight: bold; animation: slideInRight 0.3s; }
+@keyframes slideInRight { from { transform: translateX(100%); } to { transform: translateX(0); } }

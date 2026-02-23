@@ -1,7 +1,7 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyArzo0xdurFCyANC56c6lHdcoV8GjOGmIQ",
-    databaseURL: "https://projek-besar-robbotic-default-rtdb.asia-southeast1.firebasedatabase.app/",
-    projectId: "projek-besar-robbotic"
+    apiKey: "NOPE",
+    databaseURL: "NOPE",
+    projectId: "NOPE"
 };
 if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
@@ -153,4 +153,5 @@ document.getElementById('theme-checkbox').onchange = e => {
 };
 
 function openModal() { document.getElementById('modal-loc').classList.remove('hidden'); }
+
 function closeModal() { document.getElementById('modal-loc').classList.add('hidden'); }
